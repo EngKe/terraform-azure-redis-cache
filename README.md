@@ -180,4 +180,4 @@ module "redis_cache" {
 
 - **Description**: The Connection String to the Storage Account. Only supported for Premium SKUs.
 - **Type**: `string`
-- **Format**: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`
+- **Format**: `DefaultEndpointsProtocol=https;AccountName=${STORAGE_ACCOUNT_NAME};AccountKey=${STORAGE_ACCOUNT_KEY};EndpointSuffix=core.windows.net`
