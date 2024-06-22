@@ -1,0 +1,33 @@
+name: Terraform Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate_module:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.8.5
+
+    - name: Terraform Init
+      run: terraform init -backend=false
+
+    - name: Terraform Format Check
+      run: terraform fmt -check -recursive
+
+    - name: Terraform Validate
+      run: terraform validate
+
+    - name: tfsec
+      uses: aquasecurity/tfsec-action@v1.0.0
+      with:
+        soft_fail: false
