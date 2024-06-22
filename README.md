@@ -33,7 +33,6 @@ module "redis_cache" {
 
 ### Variables - Required
 
-```markdown
 ## Variables
 
 ### Required
