@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  terraform:
+  validate_module:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,9 @@ jobs:
         terraform_version: 1.8.5
 
     - name: Terraform Format Check
-      id: fmt
+      run: terraform init -backend=false
+
+    - name: Terraform Format Check
       run: terraform fmt -check -recursive
 
     - name: Terraform Validate
