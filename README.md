@@ -4,7 +4,7 @@ This Terraform module deploys an Azure Redis Cache instance with various configu
 
 ## Usage
 
-```hcl
+```
 module "redis_cache" {
   source                        = "path/to/redis-module"
   name                          = "example-redis-cache"
@@ -29,7 +29,7 @@ module "redis_cache" {
     rdb_backup_max_snapshot_count   = 5
   }
 }
-
+```
 
 ### Variables - Required
 
